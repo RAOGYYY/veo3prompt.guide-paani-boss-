@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://veo3prompt.guide/sitemap.xml

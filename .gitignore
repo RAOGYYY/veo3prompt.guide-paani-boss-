@@ -2,3 +2,8 @@
 *.log
 node_modules/
 .vercel
+.env*
+
+# local editor / workspace config
+.vscode/
+*.code-workspace
