@@ -1287,3 +1287,276 @@ code {
     transition: none;
   }
 }
+
+/* ============================ build status ============================ */
+.status-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+  margin-bottom: 34px;
+}
+
+.status-card {
+  position: relative;
+  overflow: hidden;
+  padding: 30px 28px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--white);
+  box-shadow: var(--sh-sm);
+  transition: transform .22s ease, box-shadow .22s ease;
+}
+
+.status-card::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto;
+  height: 3px;
+  background: var(--line-strong);
+}
+
+.status-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--sh-md);
+}
+
+.status-card.is-live::before {
+  background: linear-gradient(90deg, var(--green-bright), #7fae3a);
+}
+
+.status-card.is-progress::before {
+  background: linear-gradient(90deg, var(--gold), #e0b95c);
+}
+
+.status-card.is-planned::before {
+  background: linear-gradient(90deg, #b4bfb8, #d6ded8);
+}
+
+.status-card header {
+  margin-bottom: 12px;
+}
+
+.status-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  margin-bottom: 12px;
+  padding: 5px 13px;
+  border: 1px solid var(--line-strong);
+  border-radius: 999px;
+  background: var(--paper-warm);
+  font-size: .72rem;
+  font-weight: 700;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.status-pill::before {
+  content: "";
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: currentColor;
+}
+
+.is-live .status-pill {
+  border-color: #b6ddc9;
+  background: #eaf7f0;
+  color: var(--green-mid);
+}
+
+.is-progress .status-pill {
+  border-color: #e6d6a8;
+  background: #fdf7e7;
+  color: #96701f;
+}
+
+.status-card h3 {
+  font-size: 1.14rem;
+}
+
+.status-card>p {
+  color: var(--muted);
+  font-size: .95rem;
+}
+
+.status-card ul {
+  display: grid;
+  gap: 9px;
+  margin: 16px 0 0;
+  padding: 16px 0 0;
+  border-top: 1px solid var(--line);
+  list-style: none;
+  font-size: .92rem;
+  color: var(--ink-soft);
+}
+
+.status-card li {
+  display: flex;
+  align-items: flex-start;
+  gap: 9px;
+}
+
+.status-card li::before {
+  content: "";
+  flex: 0 0 auto;
+  width: 6px;
+  height: 6px;
+  margin-top: 9px;
+  border-radius: 50%;
+  background: var(--line-strong);
+}
+
+.is-live li::before {
+  background: var(--green-bright);
+}
+
+.is-progress li::before {
+  background: var(--gold);
+}
+
+/* ============================ timeline ============================ */
+.timeline {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.timeline li {
+  position: relative;
+  padding: 46px 22px 0 0;
+}
+
+.timeline li::before {
+  content: "";
+  position: absolute;
+  top: 15px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--line-strong);
+}
+
+.timeline li:last-child::before {
+  right: 50%;
+}
+
+.timeline li::after {
+  content: "";
+  position: absolute;
+  top: 9px;
+  left: 0;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  border: 3px solid var(--surface);
+  background: var(--line-strong);
+  box-shadow: 0 0 0 1px var(--line-strong);
+}
+
+.timeline li.is-done::after {
+  background: var(--green-bright);
+  box-shadow: 0 0 0 1px var(--green-bright);
+}
+
+.timeline li.is-current::after {
+  background: var(--gold);
+  box-shadow: 0 0 0 1px var(--gold), 0 0 0 6px rgba(185, 138, 46, .18);
+}
+
+.timeline li.is-final::after {
+  background: var(--green);
+  box-shadow: 0 0 0 1px var(--green);
+}
+
+.timeline .when {
+  margin-bottom: 7px;
+  font-size: .74rem;
+  font-weight: 700;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.timeline li.is-current .when {
+  color: #96701f;
+}
+
+.timeline li.is-final .when {
+  color: var(--green);
+}
+
+.timeline h3 {
+  margin-bottom: 8px;
+  font-size: 1.04rem;
+}
+
+.timeline p:last-child {
+  margin: 0;
+  color: var(--muted);
+  font-size: .93rem;
+}
+
+/* hero proof list emphasis */
+.proof-list strong {
+  color: var(--ink);
+  font-weight: 680;
+}
+
+/* ============================ responsive: new blocks ============================ */
+@media (max-width: 1000px) {
+  .status-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .timeline {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .timeline li:nth-child(2)::before {
+    right: 0;
+  }
+}
+
+@media (max-width: 720px) {
+  .status-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* Vertical rail on small screens: line runs down the left edge. */
+  .timeline {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .timeline li {
+    padding: 0 0 30px 30px;
+  }
+
+  .timeline li::before {
+    top: 6px;
+    bottom: -6px;
+    left: 7px;
+    right: auto;
+    width: 2px;
+    height: auto;
+  }
+
+  .timeline li:last-child::before {
+    display: none;
+  }
+
+  .timeline li::after {
+    top: 4px;
+    left: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .status-card:hover {
+    transform: none;
+  }
+}

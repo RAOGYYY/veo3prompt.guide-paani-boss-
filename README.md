@@ -31,12 +31,33 @@ python3 -m http.server 8090 --bind 127.0.0.1
 # then open http://127.0.0.1:8090/
 ```
 
+## Product stage
+
+| Area | State |
+| ---- | ----- |
+| Android application | live on Google Play |
+| Owner / technician web panels | in development |
+| Pricing, subscriptions, team accounts | not started |
+| Planned public launch | March 2027 |
+
+## Page structure
+
+1. Hero — what it is, plus current build state
+2. Problem
+3. Product capabilities
+4. Service job workflow
+5. App evidence (Play Store screenshots)
+6. Build status — live / in development / not started
+7. Roadmap to the March 2027 launch
+8. Founder
+9. Pilot and partnership contact
+
 ## Content rules
 
 The site deliberately publishes no invented customer counts, revenue figures,
 testimonials or partnerships. Product claims describe the shipped Android
-application; operating metrics are added only when they exist and can be
-supported.
+application, unfinished work is labelled as in development, and operating metrics
+are added only when they exist and can be supported.
 
 ## Founder
 
